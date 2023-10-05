@@ -1,0 +1,44 @@
+name: Victoria Metrics
+version: "1.8.20"
+slug: victoria_metrics
+description: Time Series Database for long term storage as replacement for Prometheus and InfluxDB
+webui: "http://[HOST]:[PORT:8428]/"
+ingress: true
+ingress_port: 8428
+ingress_entry: /vmui
+# host_network: true
+ports:
+  8428/tcp: 8428
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+#  - i386
+init: false
+map:
+  - share:rw
+options:
+  retention: "99y"
+  additionalArguments: ""
+  enableHTTPAuth: false
+  username: ""
+  password: ""
+  enablePrometheusScrape: false
+  prometheusScrapeHTTPS: false
+  prometheusScrapeInterval: "20s"
+  prometheusScrapeTimeout: "15s"
+  longelivedToken: ""
+  homeassistantUrl: ""
+schema:
+  retention: "str?"
+  additionalArguments: "str?"
+  enableHTTPAuth: bool
+  username: "str?"
+  password: "password?"
+  enablePrometheusScrape: bool
+  prometheusScrapeHTTPS: bool
+  prometheusScrapeInterval: "str?"
+  prometheusScrapeTimeout: "str?"
+  longelivedToken: "password?"
+  homeassistantUrl: "str?"
